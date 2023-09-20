@@ -1,10 +1,14 @@
 {
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
   }
-}
-"scripts": {
-  "start": "node server.js", // Replace with your start script if needed
-  "build": "npm install" // Replace with your actual build command
-}
+
