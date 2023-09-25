@@ -26,7 +26,10 @@ app.post("/find",(req,res)=>{
         totalInterestPayable: totalInterestPayable.toFixed(2),
         totalPayment: totalPayment.toFixed(2)
       };
+
     res.send(result);
+  
+    
   console.log("EMI calculated and sent");
 })
 
