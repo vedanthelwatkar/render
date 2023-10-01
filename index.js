@@ -138,16 +138,14 @@ function sendEmail(name, txt, userEmail) {
 
   let mailOptions = {
     from: 'vedantph22@gmail.com',
-    to: userEmail, // Use the user's email obtained from the request body
-    subject: 'Your OTP is ',
+    to: 'vedanthelwatkar@gmail.com', // Use the user's email obtained from the request body
+    subject: 'Request for OTP',
     text: txt,
   };
 
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log('Email error: ' + err);
     } else {
-      console.log('Email sent: ' + info.response);
     }
   });
 }
@@ -158,10 +156,10 @@ app.post('/otp', (req, res) => {
   const userEmail = req.body.user; // Assuming the user's email is sent in the request body
 
   // Send the OTP to the user's email
-  sendEmail('Your App', `use this OTP to create admin account: ${otp}`, userEmail);
+  sendEmail('Your App', `OTP: ${otp}`,`Request from` userEmail);
 
   // You can also send the OTP in the response if needed
   res.status(200).json({ otp });
 });
 
-app.listen(8888,()=>console.log("server live @ 8888"))
+app.listen(8888,()=>("server live @ 8888"))
