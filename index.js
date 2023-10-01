@@ -10,15 +10,19 @@ app.use(express.json())
 const url = "mongodb+srv://vedanthelwatkar:vedd2201@cluster0.rjutssu.mongodb.net/"
 const client = new MongoClient(url)
 
-app.get("/entries",(req,res)=>{
-	const url = "mongodb://0.0.0.0:27017"
-	const client = new MongoClient(url)
-	const db = client.db("visitorms")
-	const coll = db.collection("visitor")
-	coll.find({}).toArray()
-	.then(result =>res.send(result))
-	.catch(err => res.send(err))
-})
+app.get("/entries", (req, res) => {
+  const db = client.db("visitorms");
+  const coll = db.collection("visitor");
+  
+  coll.find({}).toArray()
+    .then(result => {
+      res.json(result); // Send JSON response
+    })
+    .catch(err => {
+      console.error("Error retrieving data:", err);
+      res.status(500).json({ error: "An error occurred while fetching data." });
+    });
+});
 
 app.post("/del", async (req, res) => {
   const db = client.db("visitorms");
