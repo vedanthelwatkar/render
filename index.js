@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const url = "mongodb://0.0.0.0:27017"
+const url = "mongodb+srv://vedanthelwatkar:vedd2201@cluster0.rjutssu.mongodb.net/"
 const client = new MongoClient(url)
 
 app.get("/entries",(req,res)=>{
